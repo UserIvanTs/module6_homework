@@ -25,3 +25,67 @@ function getOddandEvenCountArray(arr) {
 
 Задание 2
 
+function isPrime(num) {
+    let _true = 'число простое', _false = 'ответ неверный';
+    if (num <= 1 && num > 1000) return _false;
+    if (num == 2) return _true;
+    for (let i = 2; i <= num / 2; i++) {
+    if (num % i == 0) {
+      return _false;
+    }
+    }
+    return _true;
+    }
+console.log(isPrime(1111));
+console.log(isPrime(43));
+
+Задание 3
+
+function sum(x) {
+    return function(y) {
+        return x + y;
+    };
+}
+
+let f = sum(5);
+console.log( f(0), f(1), f(2) );
+
+console.log( sum(1)(2), sum(2)(2), sum(40)(2) );
+
+Задание 4
+
+function printNumbers(from, to) {
+  let current = from;
+
+  let timerId = setInterval(function() {
+    console.log(current);
+    if (current == to) {
+      clearInterval(timerId);
+    }
+    current++;
+  }, 1000);
+}
+
+
+printNumbers(5, 15);
+
+Задание 5
+
+const pow = (x, n) => {
+  let result = x;
+
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+let x = prompt("x?", '');
+let n = prompt("n?", '');
+
+if (n < 1) {
+  console.log(`Степень ${n} не поддерживается, используйте натуральное число`);
+} else {
+  console.log( pow(x, n) );
+}
